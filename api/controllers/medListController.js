@@ -19,13 +19,11 @@ exports.list_all_meds = (req, res) => {
 exports.create_a_med = (req, res) => {
   let new_med = {...req.body, createdDate: Date.now()};
   //this is supposed to be PUT?
-  Med.findOneAndUpdate({upc: new_med.upc},
-          new_med, {upsert: true, new: true}, (err, med) => {
+  Med.create(new_med, (err, med) => {
       if (err) {
         res.send(err);
       }
       else {
-        console.log('new', med);
         res.json(med);
       }
     });
