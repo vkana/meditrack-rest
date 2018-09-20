@@ -44,4 +44,4 @@ productListRoutes(app);
 storePriceRoutes(app); //register the route
 app.listen(port);
 
-console.log('walseek RESTful API server started on: ' + port);
+console.log('meditrack RESTful API server started on: ' + port);
