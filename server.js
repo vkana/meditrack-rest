@@ -9,7 +9,7 @@ app.use(cors());
 const dbConnString = secrets.dbConnString;
 
 const  mongoose = require('mongoose'),
-  Product = require('./api/models/productListModel'), //created model loading here
+  Product = require('./api/models/medListModel'), //created model loading here
   bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,11 +23,9 @@ app.get('/*', function(req, res, next){
   next();
 });
 
-var productListRoutes = require('./api/routes/productListRoutes'); //importing route
-var storePriceRoutes = require('./api/routes/storePriceListRoutes'); //importing route
+var medListRoutes = require('./api/routes/medListRoutes'); //importing route
 
-productListRoutes(app);
-storePriceRoutes(app); //register the route
+medListRoutes(app);
 app.listen(port);
 
 console.log('meditrack RESTful API server started on: ' + port);
